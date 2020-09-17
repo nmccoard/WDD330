@@ -1,29 +1,27 @@
-
-
+/*********************
+ * Create List
+ *   Will add new list items (li) with anchor tags (a) to an unordered list (ul) on the HTML page.
+ ********************/
 function createList(){
-   // our arry that will need to updated each week
+   // This array will need to updated each week with new content from that week
    const links = [
       {
          label: "Week 1 Notes",
          url: "week1/index.html"
-      },
-      {
-      label: "Week 2 Notes",
-         url :"week2/index.html"
       }
    ]
 
-   var ol = document.querySelector("ol");
+   let list = document.querySelector("ul");
 
-   // a for loop to go through our list and assign the contents to new li elements
+   // this for loop to go through our list and assign the contents to new li elements and anchor tags
    for (i = 0 ; i < links.length ; i++) {
-      var li = document.createElement("li");
-      var a = document.createElement("a");
+      let listItem = document.createElement("li");
+      let ref = document.createElement("a");
 
-      a.href = links[i].url;
-      a.innerText = links[i].label;
+      ref.href = links[i].url;
+      ref.innerText = links[i].label;
 
-      ol.appendChild(li);
-      li.appendChild(a);
+      list.appendChild(listItem);
+      listItem.appendChild(ref);
   }
 }
