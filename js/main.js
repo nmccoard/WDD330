@@ -1,9 +1,9 @@
 /*********************
  * Create List
- *   Will add new list items (li) with anchor tags (a) to an unordered list (ul) on the HTML page.
+ *   Adds a new list items (li) with an anchor tags (a) to an unordered list (ul) found on the HTML page.
  ********************/
 function createList(){
-   // This array will need to updated each week with new content from that week
+   // This array will need to updated each week with the new content for that week
    const links = [
       {
          label: "Week 1 Notes",
