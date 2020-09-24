@@ -1,0 +1,41 @@
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <meta author="Nate McCoard">
+   <title>Week 2 Examples</title>
+</head>
+<body>
+   <div>
+      <input type="text" id="test1">
+      <input type="text" id="test2">
+      <input type="text" id="test3">
+      <input type="text" id="test4">
+      <input type="button" id="btn" value="Test" onclick="testFunc()">
+   </div>
+   <div id="response">
+
+   </div>
+
+   <script>
+      function testFunc(){
+         let first  = parseFloat(document.getElementById("test1").value);
+         let second = parseFloat(document.getElementById("test2").value);
+         let third  = parseFloat(document.getElementById("test3").value);
+         let fourth = parseFloat(document.getElementById("test4").value);
+         document.getElementById("response").innerHTML =  mean(first, second, third, fourth);
+      }
+
+      function mean(...values){
+         let total = 0;
+         for(const value of values){
+            if(!isNaN(value)){
+            total += value;
+            }
+         }
+         return total/values.length;
+      }
+   </script>
+   
+</body>
+</html>
