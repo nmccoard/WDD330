@@ -11,16 +11,28 @@ function quizTime() {
 
    let score = 0
 
+   // Game loop
    for (const [question, answer] of quiz) {
-      const response = prompt(question);
+      const response = ask(question);
+      check(response, answer);
+   }
+   // Call Game Over after asking all the questions
+   gameOver(score);
+}
+
+   function ask(question) {
+      return prompt(question);
+   }
+
+   function check(response, answer) {
       if (response === answer) {
          alert('Correct!');
          score++;
       } else {
-         alert(`Wrong! The correct answer is ${answer}`);
-         score--;
+         alert(`Wrong! The correct answer was ${answer}`);
       }
    }
 
-   alert(`Game Over, you scored ${score} point${score !== 1 ? 's' : ''}`);
-}
+   function gameOver(score) {
+      alert(`Game Over, you scored ${score} point${score !== 1 ? 's' : ''}`);
+   }

@@ -11,7 +11,12 @@
 <body>
    <h1 class="title">Nate's Week 2 Notes</h1>
    <ul>
-      <lh><strong>Novice to Ninja Chapter 2</strong></lh>
+      <lh><strong>Code Examples</strong></lh>
+      <li><a href="example.html">Playing with Examples from the reading</a></li>
+      <li><a href="/quizNinja/">Quiz Ninja</a></li>
+   </ul>
+   <ul>
+      <lh><strong>Novice to Ninja Chapter 2 - Programming Basics</strong></lh>
       <li>Variables declared using const and let will have local scope and only available in the block they where created in. Var or not using keyword will have a global scope (very problematic) so avoid using them.</li>
       <li>When naming constants and variables, you should try to give them sensible names that describe what the variable represents</li>
       <li>Probably the best convention for naming variables and functions if to use camel-case. This follows the same notation used with JS's built in functions.</li>
@@ -33,6 +38,16 @@
       <br>
       <lh><strong>Chapter 4 - Functions</strong></lh>
       <li>Default parameters should always come after non-default parameters.If not then you will need to enter the default value any way. Remember position matters, the first argument will always go to the first parameter.</li>
+      <li>Arrow functions are always anonymous, so if you want to refer to them, you must assign them to a variable. The parameters come before the arrow and the main body of the function comes after. [const test = x <strong>=></strong> x*x]</li>
+      <li>The return keyword isn’t required if the return statement is the only statement in the body of the arrow function (like above).</li>
+      <li>If the function doesn’t require any parameters, a pair of empty parentheses must go before the arrow</li>
+      <li>Arrow functions are frequently used to declare short functions, that only taking up one line.</li>
+      <li>Function and variable hoisting is a JavaScript interpreter's action of move their declarations to the top of the current scope.</li>
+      <li>Function Hoisting is what lets us call a function before it has been defined.</li>
+      <li>Variable Hoisting only works with var. best practice it to use let and const and declare any variables at the top of the code block they are used in. This will help prevent weird errors caused by vars being undefined</li>
+      <li>functions can also be given as a parameter to another function. A function that is passed as an argument to another is known as a callback.</li>
+      <li>Chaining iterator functions works because they return arrays, which means that another iterator function can then be chained on to the end and it will be applied to the new array.</li>
+      <li>Refactoring is the process of improving the code’s structure and maintainability without changing its behavior.</li>
 
    </ul>
 </body>

@@ -1,58 +1,78 @@
 <html lang="en">
+
 <head>
    <meta charset="UTF-8">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
    <title>Week 2 Team Assignment</title>
 </head>
+
 <body>
-    <input type="text" id="brianasInput" name="brianasInput"></input>
-    <input type="text" id="natesInput" name="natesInput"></input>
+   <input type="text" id="brianasInput" name="brianasInput"></input>
+   <input type="text" id="natesInput" name="natesInput"></input>
    <button onclick="brianasFunction()">Briana Button</button>
    <button onclick="briansFunction(document.getElementById('brianasInput').value)">Brian Button</button>
-   <button onclick="natesFunction()">Nate Button</button>
+   <button onclick="operator(add)">Add</button>
+   <button onclick="operator(subtract)">Subtract</button>
+   <button onclick="operator(multiply)">Multiply</button>
+   <button onclick="operator(divide)">Divide</button>
 
    <div id="brianasDiv"></div>
    <div id="briansDiv"></div>
    <div id="natesDiv"></div>
 
-    <script>
-       function brianasFunction(){
-          let brianasVar = document.getElementById("brianasInput").value;
-          document.getElementById("brianasDiv").innerHTML = brianasVar;
-       }
+   <script>
+      function brianasFunction() {
+         let brianasVar = document.getElementById("brianasInput").value;
+         document.getElementById("brianasDiv").innerHTML = brianasVar;
+      }
 
-       function briansFunction(n){
-          console.log(n);
-          
-          if (!isNaN(n)) {
+      function briansFunction(n) {
+         console.log(n);
+
+         if (!isNaN(n)) {
 
             let brianAnswer = 0;
             n = parseFloat(n);
 
-            for(let i=n; i > 0; i--){
-                brianAnswer += i;
+            for (let i = n; i > 0; i--) {
+               brianAnswer += i;
             }
 
             // Other methods of finding the sum of the numbers
             //brianAnswer = (n * (n+1) ) / 2;
             //brianAnswer = (n/2)*(1+n);
-            
+
             document.getElementById("briansDiv").innerHTML = brianAnswer;
-          }
-       }
+         }
+      }
 
-       function natesFunction() {
-        let brianasVar = parseFloat(document.getElementById("brianasInput").value);
-        let natesVar = parseFloat(document.getElementById("natesInput").value);
+      /*
+      function add() {
+         let brianasVar = parseFloat(document.getElementById("brianasInput").value);
+         let natesVar = parseFloat(document.getElementById("natesInput").value);
 
-        if (!isNaN(brianasVar) && !isNaN(natesVar)) {
-          document.getElementById("natesDiv").innerHTML = brianasVar + natesVar;
-        }
-        
-       }
+         if (!isNaN(brianasVar) && !isNaN(natesVar)) {
+            document.getElementById("natesDiv").innerHTML = brianasVar + natesVar;
+         }
 
-       
-       
-    </script>
+      }*/
+
+      function operator(callback) {
+         let brianasVar = parseFloat(document.getElementById("brianasInput").value);
+         let natesVar = parseFloat(document.getElementById("natesInput").value);
+
+         if (!isNaN(brianasVar) && !isNaN(natesVar)) {
+            let answer = callback(brianasVar, natesVar);
+            document.getElementById("natesDiv").innerHTML = answer;
+         }
+      }
+
+      const divide = (x,y) => x / y;
+      const add = (x,y) => x + y;
+      const multiply = (x,y) => x * y;
+      const subtract = (x,y) => x - y;
+   
+   </script>
 </body>
+
 </html>
