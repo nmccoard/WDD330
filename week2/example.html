@@ -26,7 +26,7 @@
          let second = parseFloat(document.getElementById("test2").value);
          let third = parseFloat(document.getElementById("test3").value);
          let fourth = parseFloat(document.getElementById("test4").value);
-         document.getElementById("response").innerHTML = mean(first, second, third, fourth);
+         document.getElementById("response").innerHTML = sumMultiples(first);
       }
 
       function mean(...values) {
@@ -49,7 +49,9 @@
          console.log("and I'm moving my body to the groove.");
       }
 
-      sing("Let it Go", () => {console.log("I'm standing on my head.");}); // example of a callback using an anonymous functions
+      sing("Let it Go", () => {
+         console.log("I'm standing on my head.");
+      }); // example of a callback using an anonymous functions
       //                ^ whatever goes here is the function that is going to be called as the callback() in sing.
 
       function numerically(a, b) {
@@ -66,13 +68,46 @@
       console.log("now with a callback function");
       console.log([1, 23, 12, 5, 18, 7, 3].sort(numerically));
 
-      console.log([2,4,8].map( x => x*x));
+      console.log([2, 4, 8].map(x => x * x));
 
-      console.log([2,4,6,8].reduce( (acc,val) => acc + val));
+      console.log([2, 4, 6, 8].reduce((acc, val) => acc + val));
 
       // Chaining
-      console.log([3,5,7].map( x => x*x ).reduce((acc,x) => acc + x ));
+      console.log([3, 5, 7].map(x => x * x).reduce((acc, x) => acc + x));
 
+      
+      // JavaScript Hero Project Euler Exercise
+      function sumMultiples(x) {
+         const num = x;
+         let thirds = test3(num, 3);
+         let fifths = test5(num, 5);
+         let sum = thirds + fifths;
+
+         return sum;
+      }
+
+      function test3(x, y) {
+         let z = 0;
+         for (let i = 0; i < x; i++) {
+            let r = i * y
+            if (r < x ) {
+               z = z + r;
+            }
+         }
+         return z;
+      }
+
+      function test5(x, y) {
+         let z = 0;
+         for (let i = 0; i < x; i++) {
+            let r = i * y
+            // don't want to add the multiples of three again
+            if (r < x && !(r % 3 == 0) ) {
+               z = z + r;
+            }
+         }
+         return z;
+      }
    </script>
 
 </body>
