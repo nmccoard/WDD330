@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <meta name="author" content="Nathan McCoard">
+   <title>WDD 330 Week 3 Notes</title>
+
+   <link rel="stylesheet" href="../css/styles.css"/>
+   <link rel="shortcut icon" type="image/x-icon" href="../images/favicon.ico">
+</head>
+
+<body>
+   <h1 class="title">Nate's Week 3 Notes</h1>
+   <ul>
+      <lh><strong>Code Examples</strong></lh>
+      <li><a href="test.html">Examples and Exercise from the reading</a></li>
+      <li><a href="../quizNinja/">Quiz Ninja</a></li>
+      <li><a href="jsDrumKit/">JavaScript Drum Kit</a></li>
+   </ul>
+   <ul>
+      <lh><strong>Object methods, "this"</strong></lh>
+      <li>Object-oriented programming or OPP is when we write our code using objects to represent entities.</li>
+      <li>A function that is the property of an object is called its method.</li>
+      <li>The value of <strong>this</strong> is the object “before dot”, the one used to call the method.</li>
+      <li>Arrow functions are special: they don’t have their “own” <strong>this</strong>. They use the outer normal function's this</li>
+      <li>The value of this is defined at run-time.</li>
+      <br>
+      <lh><strong>This is JavaScript</strong></lh>
+      <li>When <stron>this</stron> is called outside of any function, in a global context, this defaults to the <strong>window</strong> object in the browser.</li>
+      <li><strong>this</strong> within any method refers to the object itself.</li>
+      <li><strong>this</strong> is always set to <strong>window</strong> in a simple function</li>
+      <li><strong>this</strong> in an arrow function is always the same as <strong>this</strong> around it (in its immediate scope).</li>
+      <li><strong>this</strong> in event listeners is set to the element that fired it (ie the button)</li>
+      <br>
+      <lh><strong>Chapter 5 - "Objects"</strong></lh>
+      <li>Object literals - allow objects to be created quickly without the need for defining a class as you would in other languages.</li>
+      <li>Object literals that is created directly in the code by wrapping all its properties/methods in {}.</li>
+      <li>Object literals use key-value pairs, separated by commas.</li>
+      <li>Object literals can have computed property keys. This is done by using JavaScript inside [].</li>
+      <li>Symbol data type can be used as a computed property key. You can access the property using the [] notation</li>
+      <li>Each symbol has a unique value, which means that using them as property keys avoids any naming clashes if you mistakenly use the same value for two different property keys</li>
+      <li>Object properties do not always appear in the same order or the order they were entered. Never rely on a property to be in a certain oder.</li>
+      <li>Objects can be nested (ie objects inside of objects</li>
+      <li>Objects are assigned by reference (pointer a spot in memory). Any changes made using the either reference will affect the same object.</li>
+      <li>When using stringify() to turn objects in to a JSON formatted string it will ignore methods and not include them.</li>
+      <li><strong>Question:</strong> How do you make object properties and methods immutable?</li>
+      
+
+
+   </ul>
+</body>
+
+</html>

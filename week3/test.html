@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Week 4 testing page</title>
+</head>
+
+<body>
+
+   <script>
+      // // Object methods, "this"
+      // let calculator = {
+      //    read() {
+      //       this.a = +prompt('First number?', 0);
+      //       this.b = +prompt('Second number?', 0)
+      //    },
+
+      //    sum() {
+      //       return this.a + this.b;
+      //    },
+
+      //    mul() {
+      //       return this.a * this.b;
+      //    }
+      // };
+
+      // calculator.read();
+      // alert(calculator.sum());
+      // alert(calculator.mul());
+
+      // // Ladder
+      // let ladder = {
+      //    step: 0,
+      //    up() {
+      //       this.step++;
+      //       return this;
+      //    },
+      //    down() {
+      //       this.step--;
+      //       return this;
+      //    },
+      //    showStep() {
+      //       alert(this.step);
+      //       return this;
+      //    }
+      // }
+
+      // ladder.up().up().up().down().showStep();
+
+      // // object literal example
+      // const superman = {
+      //    name: 'Superman',
+      //    'real name': 'Clark Kent',
+      //    height: 75,
+      //    weight: 235,
+      //    hero: true,
+      //    villain: false,
+      //    allies: ['Batman', 'Supergirl', 'Superboy'],
+      //    fly() {
+      //       return 'Up, up and away!';
+      //    },
+      //    heatVision() {
+      //       return "Bbbzzzzz...";
+      //    }
+      // };
+
+      // // calling a method using dot notation
+      // console.log(superman.heatVision());
+      // // checking if a property or method exist in an object
+      // console.log('city' in superman);
+      //    //or
+      // console.log(superman.wife !== undefined);
+      //    //or
+      // console.log(superman.hasOwnProperty('name'))
+
+      // // getting all the properties from an object
+      // for (const key in superman) {
+      //    console.log(key + ": " + superman[key]);
+      // }
+      //    //or
+      // for(const [key,value] of Object.entries(superman)) {
+      //    console.log(`${key}: ${value}`);
+      // }
+
+      // // adding new properties or changing them
+      // superman.city = 'Cleveland'
+      // console.log(superman.city);
+
+      // // objects are assigned by reference
+      // const cloneSuperman = superman;
+      // cloneSuperman.city = 'Metropolis';
+      // console.log(superman.city);
+
+      const dice = {
+      sides: 6,
+      roll() {
+      return Math.floor(this.sides * Math.random()) + 1;
+      }
+      }
+
+      console.log(dice.roll());
+
+   </script>
+</body>
+
+</html>
