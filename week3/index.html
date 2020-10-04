@@ -87,7 +87,14 @@
       <li>The document.querySelector() method allows you to use CSS notation to find the first element in the document that matches a CSS selector provided</li>
       <li>The document.querySelectorAll() method also uses CSS notation but returns a node list of all the elements in the document that match</li>
       <il>While it may seem useful to be able to edit the styles of elements on the fly like this, it is much better practice to dynamically change the class of an element and keep the relevant styles for each class in a separate stylesheet</il>
-      <li></li>
+      <br>
+      <lh><strong>Chapter 7 - Events</strong></lh>
+      <li>Unobtrusive JavaScript advocates that JS code should be kept out of the HTML</li>
+      <li>The recommended way of dealing with events, and the current standard, is to use event listeners.</li>
+      <li><strong>Example:</strong> document.body.addEventListener('click', doSomething);</li>
+      <li>When using the keydown, keypress, or keyup they are not tied to any particular key. The information about which key is pressed is a property of the event object, though.</li>
+      <li>Pressing the modifier keys such as Shift, Ctrl, Alt will fire the keydown and keyup events, but not the keypress event as they don’t produce any characters on the screen.</li>
+      
    </ul>
 </body>
 
