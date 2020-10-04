@@ -16,6 +16,7 @@
    <ul>
       <lh><strong>Code Examples</strong></lh>
       <li><a href="test.html">Examples and Exercise from the reading</a></li>
+      <li><a href="heroes.html">Heroes</a></li>
       <li><a href="../quizNinja/">Quiz Ninja</a></li>
       <li><a href="jsDrumKit/">JavaScript Drum Kit</a></li>
    </ul>
@@ -46,9 +47,47 @@
       <li>Objects are assigned by reference (pointer a spot in memory). Any changes made using the either reference will affect the same object.</li>
       <li>When using stringify() to turn objects in to a JSON formatted string it will ignore methods and not include them.</li>
       <li><strong>Question:</strong> How do you make object properties and methods immutable?</li>
-      
-
-
+      <br>
+      <lh><strong>Chapter 6 - The Document Object Model (DOM)</strong></lh>
+      <li>HTML docs are like a network of connected node that form a tree-like structure.</li>
+      <li>The DOM treats everything on a web page as a node.</li>
+      <li>the HTML tag is the root node and every other part of the document is a child node to it.</li>
+      <li><strong>document</strong> is a special built-in object in JavaScript.</li>
+      <li>I didn't know that press TAB in the console will autocomplete.</li>
+      <li>Here are the key to the numbers that .nodeType returns.
+         <br>
+         <table>
+            <tr>
+               <th><b>Code#</b></th>
+               <th><b>Type</b></th>
+            </tr>
+            <tr>
+               <td>1</td>
+               <td>element</td>
+            </tr>
+            <tr>
+               <td>2</td>
+               <td>attribute</td>
+            </tr>
+            <tr>
+               <td>3</td>
+               <td>text</td>
+            </tr>
+            <tr>
+               <td>8</td>
+               <td>comment</td>
+            </tr>
+            <tr>
+               <td>9</td>
+               <td>body</td>
+            </tr>
+         </table>
+      </li>
+      <li>document.getElementById is probably the most commonly used method of accessing elements on a web page.</li>
+      <li>The document.querySelector() method allows you to use CSS notation to find the first element in the document that matches a CSS selector provided</li>
+      <li>The document.querySelectorAll() method also uses CSS notation but returns a node list of all the elements in the document that match</li>
+      <il>While it may seem useful to be able to edit the styles of elements on the fly like this, it is much better practice to dynamically change the class of an element and keep the relevant styles for each class in a separate stylesheet</il>
+      <li></li>
    </ul>
 </body>
 
