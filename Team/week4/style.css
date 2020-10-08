@@ -1,0 +1,31 @@
+@import url('https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap');
+
+body{
+   font-family: 'Indie Flower', cursive;
+   text-align: center;
+}
+
+#gameBoard {
+   display: grid;
+   grid-template-columns: 100px 100px 100px;
+   grid-template-rows: 100px 100px 100px;
+   justify-content: center;
+}
+
+#gameBoard > div {
+   font-size: 75px;
+   border-bottom: 2px solid darkblue;
+   border-right: 2px solid darkblue;
+}
+
+#gameBoard > div:nth-child(n+7) {
+   border-bottom: none;
+}
+
+#gameBoard > div:nth-child(3n) {
+   border-right: none;
+}
+
+#playerTurn {
+   font-size: 30px;
+}
