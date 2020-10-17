@@ -4,17 +4,18 @@ const moles = document.querySelectorAll('.mole');
 let lastHole;
 let timeUp = false;
 let score = 0;
+let highScore = 
 
 function randomTime(min, max) {
    return Math.round(Math.random() * (max - min) + min);
- }
+}
 
 // this is just a random DOM selector
-function randomHole(holes){
+function randomHole(holes) {
    //console.log(holes.length);
    const idx = Math.floor(Math.random() * holes.length);
    const hole = holes[idx];
-   if(hole === lastHole){
+   if (hole === lastHole) {
       console.log('Ah nah that the same hole')
       return randomHole(holes);
    }
@@ -23,14 +24,14 @@ function randomHole(holes){
    return hole;
 }
 
-function peek(){
+function peek() {
    const time = randomTime(200, 1000);
    const hole = randomHole(holes);
    //console.log(time, hole);
    hole.classList.add('up');
    setTimeout(() => {
       hole.classList.remove('up');
-      if(!timeUp) peek();
+      if (!timeUp) peek();
    }, time);
 }
 
@@ -39,16 +40,22 @@ function startGame() {
    timeUp = false;
    score = 0;
    peek();
-   setTimeout(() => timeUp = true, 10000) // 1 sec = 1000.
+   setTimeout(() => {
+      timeUp = true;
+      gameOver()
+   }, 10000) // 1 sec = 1000.
 }
 
-function hit(e){
+function hit(e) {
    //console.log(e);
-   if(!e.isTrusted) return;
+   if (!e.isTrusted) return;
    score++;
    this.classList.remove('up');
    scoreBoard.textContent = score;
 }
 
-moles.forEach(mole => mole.addEventListener('click', hit));
+function gameOver() {
+   console.log("Game is over")
+}
 
+moles.forEach(mole => mole.addEventListener('click', hit));

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <meta name="author" content="Nathan McCoard">
+   <title>Todos</title>
+   <link rel="shortcut icon" type="image/x-icon" href="assets/favicon.ico">
+   <link rel="stylesheet" href="css/styles.css" />
+</head>
+
+<body>
+   <header>
+      <h1>Todos</h1>
+   </header>
+   <div id="toDoList">
+      <div id="itemList">
+
+      </div>
+      <div id="status" class="item">
+         <label class="filter" id="tasksLeft">0 Tasks Left</label>
+         <input class="filter btn" type="button" value="All">
+         <input class="filter btn" type="button" value="Active">
+         <input class="filter btn" type="button" value="Completed">
+      </div>
+   </div>
+
+   <!-- Find a way to keep this at bottom of screen -->
+   <footer>
+      <div class="foot">
+         <input type="text" id="inputField" placeholder="New Task...">
+         <input type="button" id="newTaskBtn" value="+">
+      </div>
+   </footer>
+   <script src="js/ToDos.js"></script>
+</body>
+
+</html>
