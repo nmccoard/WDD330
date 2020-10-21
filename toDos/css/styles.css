@@ -5,11 +5,12 @@ body {
 }
 
 h1 {
-   max-width: 400px;
-   margin: 50px auto;
+   width: 50%;
+   min-width: 400px;
+   margin: 30px auto;
    background: #bada55;
    border-radius: 2px;
-   box-shadow: 4px 4px 0 rgba(0,0,0,0.5);
+   box-shadow: 4px 4px 0 rgba(0, 0, 0, 0.5);
    font-size: 36px;
    font-weight: 700;
    text-align: center;
@@ -17,11 +18,13 @@ h1 {
 }
 
 #toDoList {
-   max-width: 400px;
-   margin: 50px auto;
+   width: 50%;
+   min-width: 400px;
+   margin: 20px auto;
+   margin-bottom: 70px;
    background: white;
-   border-radius: 5px;
-   box-shadow: 9px 7px 0 rgba(0,0,0,0.1);
+   border-radius: 2px;
+   box-shadow: 5px 5px 0 rgba(0, 0, 0, 0.1);
    font-family: 'Nunito', sans-serif;
 }
 
@@ -31,7 +34,7 @@ h1 {
    border-bottom: 1px solid rgb(225, 225, 225);
 }
 
-input[type="checkbox"] {
+input [type="checkbox"] {
    margin: 10px;
 }
 
@@ -59,19 +62,44 @@ label {
    border: none;
 }
 
-footer {
-   max-width: 385px;
-   margin: 50px auto;
+.filter {
+   background-color: #bada55;
+   border: none;
+   color: rgb(100, 100, 100);
+   padding: 5px 15px;
+   font-size: 16px;
+   text-decoration: none;
+   margin: 0px 0px;
+   font-family: 'Nunito', sans-serif;
 }
+
+.btn:hover {
+   background-color: #8fa741;
+}
+
+.hidden {
+   display: none;
+}
+
+footer {
+   position: fixed;
+   bottom: 30px;
+   left: 50%;
+   transform: translate(-50%, 0);
+   width: 50%;
+   min-width: 390px;
+}
+
 .foot {
    display: flex;
    align-items: center;
+   width: 99%;
 }
 
 #inputField {
    flex: 1;
    font-size: 18px;
-   box-shadow: 4px 4px 0 rgba(0,0,0,0.1);
+   box-shadow: 4px 4px 0 rgba(0, 0, 0, 0.1);
    font-family: 'Nunito', sans-serif;
 }
 
@@ -82,24 +110,35 @@ footer {
    background-color: #bada55;
    border: none;
    border-radius: 2px;
-   box-shadow: 4px 4px 0 rgba(0,0,0,0.1);
+   box-shadow: 4px 4px 0 rgba(0, 0, 0, 0.1);
 }
 
-.filter{
-background-color: #bada55;
-border: none;
-color: rgb(100, 100, 100);
-padding: 5px 15px;
-font-size: 16px;
-text-decoration: none;
-margin: 0px 0px;
-font-family: 'Nunito', sans-serif;
-}
+@media screen and (max-width:420px) {
+   h1 {
+      width: 90%;
+      min-width: 280px;
+      font-size: 20px;
+   }
 
-.btn:hover {
-   background-color: #8fa741;
-}
+   #toDoList {
+      width: 90%;
+      min-width: 280px;
+      font-size: 11px;
+   }
 
-.hidden {
-   display: none;
+   label,
+   .removeBtn,
+   .filter,
+   #inputField {
+      font-size: 11px;
+   }
+
+   #newTaskBtn {
+      font-size: 16px;
+   }
+
+   footer {
+      min-width: 280px;
+   }
+
 }

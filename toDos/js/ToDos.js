@@ -46,6 +46,7 @@ function displayTask(task) {
    // create tje new checkbox
    let checkBox = document.createElement("input");
    checkBox.type = "checkbox";
+   checkBox.id = `checkbox${toDoList.length - 1}`;
    // adding a on change event listener
    checkBox.onchange = () => {
       toggleComplete(task)
@@ -56,6 +57,7 @@ function displayTask(task) {
    }
    // create the new label for the checkbox (this text we see for the tasks)
    let itemLabel = document.createElement("label");
+   itemLabel.htmlFor = `checkbox${toDoList.length - 1}`;
    itemLabel.appendChild(document.createTextNode(task.content));
    // create a new remove button
    let removeBTN = document.createElement("input");
@@ -63,6 +65,7 @@ function displayTask(task) {
    removeBTN.className = "removeBtn";
    removeBTN.value = "X";
    removeBTN.id = `${toDoList.length - 1}`;
+   // adding the event listener
    removeBTN.onclick = () => {
       removeTask(event)
    };
@@ -133,14 +136,19 @@ function filterCompleted() {
    //let completedList = toDoList.filter(item => item.completed === true);
    //console.log(completedList);
    let i = 0;
+   let xItems = 0;
    for (task of toDoList) {
-      if (task.completed === false) {
-         document.querySelectorAll(".item")[i].classList.add("hidden");
-      } else {
-         document.querySelectorAll(".item")[i].classList.remove("hidden");
+      if (task != undefined) {
+         if (task.completed === false) {
+            document.querySelectorAll(".item")[i].classList.add("hidden");
+         } else {
+            document.querySelectorAll(".item")[i].classList.remove("hidden");
+            xItems++;
+         }
       }
       i++
    }
+   document.querySelector("#tasksLeft").innerHTML = `${xItems} Completed`;
 }
 
 function filterActive() {
@@ -148,13 +156,16 @@ function filterActive() {
    //console.log(activeList);
    let i = 0;
    for (task of toDoList) {
-      if (task.completed === true) {
-         document.querySelectorAll(".item")[i].classList.add("hidden");
-      } else {
-         document.querySelectorAll(".item")[i].classList.remove("hidden");
+      if (task != undefined) {
+         if (task.completed === true) {
+            document.querySelectorAll(".item")[i].classList.add("hidden");
+         } else {
+            document.querySelectorAll(".item")[i].classList.remove("hidden");
+         }
       }
       i++
    }
+   tasksLeft();
 }
 
 function filterAll() {
@@ -164,6 +175,7 @@ function filterAll() {
       document.querySelectorAll(".item")[i].classList.remove("hidden");
       i++
    }
+   tasksLeft();
 }
 
 /*****************************
