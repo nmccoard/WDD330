@@ -14,7 +14,7 @@ export function tasksLeft(list) {
 
 export function filterCompleted(list) {
    let numTasks = 0;
-   for (let i = 0; i < list.length; i++){
+   for (let i = 0; i < list.length; i++) {
       if (list[i] != undefined) {
          if (list[i].completed === false) {
             document.querySelectorAll(".item")[i].classList.add("hidden");
@@ -28,7 +28,7 @@ export function filterCompleted(list) {
 }
 
 export function filterActive(list) {
-   for (let i = 0; i < list.length; i++){
+   for (let i = 0; i < list.length; i++) {
       if (list[i] != undefined) {
          if (list[i].completed === true) {
             document.querySelectorAll(".item")[i].classList.add("hidden");

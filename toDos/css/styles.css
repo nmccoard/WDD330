@@ -40,7 +40,7 @@ h1 {
    height: 17px;
 }
 
-input:checked + label {
+input:checked+label {
    text-decoration: line-through;
 }
 

@@ -1,15 +1,13 @@
-export function saveList(fileName, listName) {
-   const toBeSaved = JSON.stringify(listName);
+export function saveList(fileName, list) {
+   const toBeSaved = JSON.stringify(list);
    localStorage.setItem(fileName, toBeSaved);
-   console.log("saved the list");
 }
 
-export function loadList(fileName){
+export function loadList(fileName) {
    let savedList = JSON.parse(localStorage.getItem(fileName));
-   if (savedList != null){
+   if (savedList != null) {
       return savedList;
    } else {
       return [];
    }
 }
-

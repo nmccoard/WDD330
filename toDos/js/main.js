@@ -23,7 +23,6 @@ function addNewTask() {
    let task = document.querySelector('#inputField').value;
    const newTask = new ToDo(task);
    toDoList.push(newTask);
-   console.log(toDoList);
    displayTask(newTask);
    document.querySelector('#inputField').value = "";
    utility.tasksLeft(toDoList);
@@ -63,7 +62,6 @@ function displayTask(task) {
 }
 
 function toggleComplete(task) {
-   console.log("toggle fired");
    if (task.completed === false) {
       task.completed = true;
    } else {
@@ -74,7 +72,6 @@ function toggleComplete(task) {
 }
 
 function removeTask(position) {
-   console.log(`Item ${position} called Remove`);
    document.querySelectorAll(".item")[position].style.display = "none";
    delete toDoList[position];
    utility.tasksLeft(toDoList);
@@ -83,17 +80,15 @@ function removeTask(position) {
 
 function loadSavedTasks() {
    let savedTasks = loadList(fileName);
-      savedTasks.forEach(item => {
-         if (item) {
-            // turn the saved tasks back into toDo objects
-            item = Object.assign(new ToDo, item);
-            toDoList.push(item);
-            displayTask(item);
-            utility.tasksLeft(toDoList);
-         }
-      });
-   console.log("toDoList");
-   console.log(toDoList);
+   savedTasks.forEach(item => {
+      if (item) {
+         // turn the saved tasks back into toDo objects
+         item = Object.assign(new ToDo, item);
+         toDoList.push(item);
+         displayTask(item);
+         utility.tasksLeft(toDoList);
+      }
+   });
 }
 
 /*****************************
