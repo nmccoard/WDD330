@@ -24,6 +24,10 @@ function createList(){
       {
          label: "Week 5 Notes", 
          url: "week5/"
+      },
+      {
+         label: "Week 6 Challenge: Todo App", 
+         url: "toDos/"
       }
    ]
 
