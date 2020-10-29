@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Week 7 Examples</title>
+</head>
+<div id="test1"></div>
+<br>
+<div id="test2"></div>
+
+<body>
+   <script>
+      // Examples pf the call method that lets you point the this inside a function to an object.
+      function sayHello(greeting = 'Hello') {
+         return `${ greeting }, my name is ${ this.name }`;
+      }
+      const clark = {
+         name: 'Clark'
+      };
+      const bruce = {
+         name: 'Bruce'
+      };
+      document.getElementById("test1").innerHTML = sayHello.call(clark, "How do you do");
+      console.log(sayHello.call(bruce));
+
+      // the .cache property example
+      function square(x) {
+         square.cache = square.cache || {};
+         if (!square.cache[x]) {
+            square.cache[x] = x * x;
+         }
+         return square.cache[x]
+
+      }
+      // Play around with the apply method
+      document.getElementById("test2").innerHTML = square.apply(null, [4]);
+
+      // IIFe example
+      (function () {
+         const temp = "I was made by an IIFE function";
+         console.log(`Hello, ${temp}`);
+      })();
+
+      let a = 1;
+      let b = 2;
+      console.log(`Before: A = ${a} and B = ${b}`);
+      (() => {
+         const temp = a;
+         a = b;
+         b = temp;
+      })();
+
+      console.log(`After: A = ${a} and B = ${b}`);
+      //console.log(temp);
+
+      
+   </script>
+</body>
+
+</html>

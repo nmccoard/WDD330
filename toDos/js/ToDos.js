@@ -8,4 +8,3 @@ export default class ToDo {
       this.completed = false;
    }
 }
-
