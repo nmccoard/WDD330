@@ -6,11 +6,18 @@
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
    <title>Week 7 Examples</title>
 </head>
-<div id="test1"></div>
-<br>
-<div id="test2"></div>
 
 <body>
+   <div id="test1"></div>
+   <br>
+   <div id="test2"></div>
+
+   <button id='number'>Number Fact</button>
+   <button id='chuck'>Chuck Norris Fact</button>
+   <div id='output'>
+      Ajax response will appear here
+   </div>
+
    <script>
       // Examples pf the call method that lets you point the this inside a function to an object.
       function sayHello(greeting = 'Hello') {
@@ -55,7 +62,80 @@
       console.log(`After: A = ${a} and B = ${b}`);
       //console.log(temp);
 
-      
+
+      // Callback example
+      function wait(message, callback, seconds) {
+         setTimeout(callback, seconds * 1000);
+         console.log(message);
+      }
+
+      function selfDestruct() {
+         console.log('BOOOOM!');
+      }
+
+      // promise example
+      const dice = {
+         sides: 6,
+         roll() {
+            return Math.floor(this.sides * Math.random()) + 1;
+         }
+      }
+      console.log('Before the roll');
+      const roll = new Promise((resolve, reject) => {
+         const n = dice.roll();
+         if (n > 1) {
+            setTimeout(() => {
+               resolve(n)
+            }, n * 200);
+         } else {
+            setTimeout(() => reject(n), n * 200);
+         }
+      });
+      roll.then(result => console.log(`I rolled a ${result}`))
+         .catch(result => console.log(`Drat! ... I rolled a ${result}`));
+      console.log('After the roll');
+
+      // Closure example
+      function closure() {
+         const a = 1.8;
+         const b = 32;
+         return c => c * a + b;
+      }
+
+      const toF = closure();
+
+      // AJAX Example using fetch
+      const textButton = document.getElementById('number');
+      const apiButton = document.getElementById('chuck');
+      const outputDiv = document.getElementById('output');
+      const textURL = 'http://numbersapi.com/random';
+      const apiURL = 'https://api.chucknorris.io/jokes/random';
+
+      textButton.addEventListener('click', () => {
+         fetch(textURL).then(response => {
+            outputDiv.innerHTML = "Waiting for response...";
+            if (response.ok) {
+               return response;
+            }
+            throw Error(response.statusText);
+         })
+         .then(response => response.text())
+         .then (text => outputDiv.innerText = text)
+         .catch(error => console.log("There was an ERROR:", error))
+      }, false);
+      // now for JSON with Chuck Norris
+      apiButton.addEventListener('click', () =>{
+         fetch(apiURL).then(response => {
+            outputDiv.innerHTML = "Waiting for response...";
+            if(response.ok){
+               return response;
+            }
+            throw Error(response.statusText);
+         })
+         .then(response => response.json())
+         .then(data => outputDiv.innerText = data.value)
+         .catch(error => console.log('There was an ERROR:', error))
+      }, false);
    </script>
 </body>
 

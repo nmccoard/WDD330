@@ -1,3 +1,12 @@
+const url = "https://spbooks.github.io/jsninja2/questions.json";
+
+fetch(url)
+   .then(res => res.json())
+   .then(quiz => {
+      view.start.addEventListener('click', () => game.start(quiz.questions), false);
+      view.response.addEventListener('click', (event) => game.check(event), false);
+   });
+
 const view = {
    score: document.querySelector('#score strong'),
    question: document.getElementById('question'),
@@ -39,7 +48,7 @@ const view = {
    }
 };
 
-const quiz = [{
+/* const quiz = [{
       name: "Superman",
       realName: "Clark Kent"
    },
@@ -75,8 +84,7 @@ const quiz = [{
       name: "Cyclops",
       realName: "Scott Summers"
    }
-];
-
+]; */
 
 const game = {
    start(quiz) {
@@ -88,12 +96,15 @@ const game = {
 
    ask(name) {
       //console.log('ask() invoked');
-      if (this.questions.length > 3) {
+      if (this.questions.length > 2) {
          shuffle(this.questions);
          this.question = this.questions.pop();
-         const options = [this.questions[0].realName,
-            this.questions[1].realName, this.questions[2].realName, this.question.realName];
-
+         const options = [
+            this.questions[0].realName,
+            this.questions[1].realName, 
+            //this.questions[2].realName, 
+            this.question.realName
+         ];
          shuffle(options);
          const question = `What is ${this.question.name}'s real name?`;
          view.render(view.question, question);
@@ -141,7 +152,3 @@ function shuffle(array) {
    }
 }
 
-
-view.start.addEventListener('click', () => game.start(quiz), false);
-
-view.response.addEventListener('click', (event) => game.check(event), false);
