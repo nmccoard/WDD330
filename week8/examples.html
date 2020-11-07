@@ -1,11 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
    <meta charset="UTF-8">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
    <title>Week 8 Examples</title>
+   <style>
+      .firstCanvas {
+         border: dotted 2px tomato;
+      }
+   </style>
 </head>
+
 <body>
-   
+   <canvas id="myCanvas" class="firstCanvas" width="200" height="200">
+      Sorry! Your Browser doesn't support Canvas.
+   </canvas>
+
+   <img data-src="https://www.w3.org/html/logo/img/mark-word-icon.png" id="myImageElem">
+
+   <div>
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
+         <desc>Drawing a rectangle</desc>
+         <rect x="10" y="10" width="50" height="50" fill="blue" stroke="red" stroke-width="3" />
+      </svg>
+   </div>
+   <div>
+      <svg viewBox="0 0 200 200">
+         <circle cx="50" cy="50" r="25" fill="red" />
+      </svg>
+   </div>
+   <script src="test.js"></script>
 </body>
+
 </html>

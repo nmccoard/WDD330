@@ -57,9 +57,7 @@ function displayDetails(shipItem, ship) {
       "</li> </ul>";
   } else {
     shipItem.innerHTML = ship.name;
-  }
-    
-  
+  }  
 }
 
 function buildPages(count){

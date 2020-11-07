@@ -123,6 +123,7 @@
          .then (text => outputDiv.innerText = text)
          .catch(error => console.log("There was an ERROR:", error))
       }, false);
+      
       // now for JSON with Chuck Norris
       apiButton.addEventListener('click', () =>{
          fetch(apiURL).then(response => {
