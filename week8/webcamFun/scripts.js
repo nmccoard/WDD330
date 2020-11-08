@@ -5,7 +5,7 @@ const strip = document.querySelector('.strip');
 const snap = document.querySelector('.snap');
 
 // if you add a filter add another false to this array
-let filter = [false, false, false]
+let filter = [false, false, false, false]
 
 
 function getVideo(){
@@ -40,6 +40,9 @@ function paintToCanvas(){
       }
       if (filter[2] === true){
       pixels = greenScreen(pixels);
+      }
+      if (filter[3] === true){
+         pixels = invertRAndB(pixels);
       }
       // put them back in
       ctx.putImageData(pixels, 0, 0);
@@ -97,6 +100,20 @@ function greenScreen(pixels) {
    return pixels;
 }
 
+// filter4
+function invertRAndB(pixels){
+   for(let i=0; i < pixels.data.length; i += 4){
+      let temp = pixels.data[i];
+      // RED
+      pixels.data[i] = pixels.data[i+2];
+      // GREEN
+
+      // BLUE
+      pixels.data[i + 2] = temp;
+   }
+   return pixels
+}
+
 /*************************************************
  * Toggle Filters on/off
  ************************************************/
@@ -126,13 +143,25 @@ function toggleGreen() {
    }
 }
 
+function toggleR_B() {
+   if(filter[3]=== false){
+      filter[3] = true;
+   } else {
+      filter[3] = false;
+   }
+}
+
 function removeFilters(){
    for( let i=0; i < filter.length; i++){
       filter[i] = false;
    }
+   document.querySelector("#greenScreenSliders").classList.add("hidden");
 
 }
 
+/********************
+ * Take a Photo
+ ******************/
 function takePhoto() {
    // play the click sound
    snap.currentTime = 0;

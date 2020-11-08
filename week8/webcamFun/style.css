@@ -8,12 +8,40 @@ html {
 
 html {
   font-size: 10px;
-  background: #ffc600;
+  background: #2e2e2e;
 }
+
+.controls{
+  background: #2e2e2e;
+}
+
+.rgb{
+  color: #2971c4;
+  font-weight: 700;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  padding-bottom: 7px;
+}
+
+button{
+  background-color: #005CC8;
+  color: rgb(219, 219, 219);
+  border: none;
+  padding: 7px;
+  margin-bottom: 7px;
+  margin-right: 5px;
+}
+
+button:hover{
+  background-color: #053469;
+  color: rgb(219, 219, 219);
+  border: none;
+  padding: 7px;
+}
+
 
 .photobooth {
   background: white;
-  max-width: 150rem;
+  max-width: 100rem;
   margin: 2rem auto;
   border-radius: 2px;
 }
