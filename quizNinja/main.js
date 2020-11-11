@@ -8,6 +8,7 @@ fetch(url)
    });
 
 const view = {
+   timer: document.querySelector('#timer strong'),
    score: document.querySelector('#score strong'),
    question: document.getElementById('question'),
    result: document.getElementById('result'),
@@ -90,6 +91,8 @@ const game = {
    start(quiz) {
       this.questions = [...quiz];
       this.score = 0;
+      this.secondsRemaining = 30;
+      this.timer = setInterval(this.countdown, 1000);
       view.setup();
       this.ask();
    },
@@ -101,7 +104,7 @@ const game = {
          this.question = this.questions.pop();
          const options = [
             this.questions[0].realName,
-            this.questions[1].realName, 
+            this.questions[1].realName,
             //this.questions[2].realName, 
             this.question.realName
          ];
@@ -132,9 +135,18 @@ const game = {
       this.ask();
    },
 
+   countdown() {
+      game.secondsRemaining--;
+      view.render(view.timer, game.secondsRemaining);
+      if (game.secondsRemaining < 0) {
+         game.gameOver();
+      }
+   },
+
    gameOver() {
       view.render(view.info, `Game Over, you scored ${this.score} point${this.score !== 1 ? 's' : ''}`);
       view.teardown();
+      clearInterval(this.timer);
    }
 }
 
@@ -151,4 +163,3 @@ function shuffle(array) {
       [array[i - 1], array[j]] = [array[j], array[i - 1]];
    }
 }
-
