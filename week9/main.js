@@ -17,3 +17,10 @@ function rotate(){
 }
 
 const id = requestAnimationFrame(rotate);
+
+navigator.geolocation.getCurrentPosition(youAreHere);
+
+function youAreHere(position) {
+   document.getElementById('location').innerHTML = `Latitude: ${position.coords.latitude}, Longitude: ${position.coords.longitude}`;
+   console.log(`Location Accuracy: ${position.accuracy}`);
+}

@@ -20,4 +20,8 @@
    animation: spin 3s linear infinite;
 }
 
+#location{
+   color: tomato;
+}
+
 @keyframes spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
