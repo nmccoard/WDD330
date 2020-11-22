@@ -1,0 +1,91 @@
+@import url('https://fonts.googleapis.com/css?family=Asap:400,500,700');
+
+* {
+   margin: 0;
+   padding: 0;
+   box-sizing: border-box;
+   font-family: Asap, sans-serif;
+}
+
+body {
+   background-color: #24272E;
+}
+
+header {
+   background: white;
+   padding: 20px;
+}
+
+header > h1 {
+   color: #24272E;
+   text-align: center;
+}
+
+.scoreBoard {
+   position: relative;
+   margin: 30px auto;
+   padding: 15px 20px;
+   border: 3px solid white;
+   border-radius: 4px;
+   width: 200px;
+   color: white;
+   font-size: 44px;
+   text-align: center;
+}
+
+.badge {
+   background: #E2584D;
+   color: white;
+   font-size: 14px;
+   padding: 2px 8px;
+}
+
+#userLabel {
+   position: absolute;
+   top: 30px;
+   left: -26px;
+}
+
+#opponentLabel {
+   position: absolute;
+   top: 30px;
+   right: -30px;
+}
+
+.result {
+   font-size: 40px;
+   color: white;
+}
+
+.result > p {
+   font-weight: bold;
+   text-align: center;
+}
+
+.choices {
+   margin-top: 35px;
+   text-align: center;
+}
+
+.choice {
+   display: inline-block;
+   border: 4px solid white;
+   border-radius: 50%;
+   margin: 0 20px;
+   padding: 15px;
+   transition: all 450ms ease;
+}
+
+.choice:hover {
+   transform: scale(1.2);
+   background-color: #000000;
+}
+
+#actionPrompt {
+   text-align: center;
+   color: white;
+   font-weight: bold;
+   font-size: 25px;
+   margin-top: 25px;
+}
+
