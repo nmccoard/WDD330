@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
    <meta charset="UTF-8">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -15,36 +16,48 @@
       <h1>Rock - Paper - Scissors - Lizard - Spock</h1>
    </header>
 
-   <div class="scoreBoard">
-      <div class="badge" id="userLabel">User</div>
-      <div class="badge" id="opponentLabel">Comp</div>
-      <span id="userScore">0</span> : <span id="opponentScore">0</span>
-   </div>
 
-   <div class="result">
-      <p>Paper covers rock. You Win!</p>
-   </div>
-
-   <div class="choices">
-      <div class="choice" id="rock">
-         <img src="images/icon-rock.svg" alt="rock">
-      </div>
-      <div class="choice" id="paper">
-         <img src="images/icon-paper.svg" alt="paper">
-      </div>
-      <div class="choice" id="scissors">
-         <img src="images/icon-scissors.svg" alt="scissors">
-      </div>
-      <div class="choice" id="lizard">
-         <img src="images/icon-lizard.svg" alt="lizard">
-      </div>
-      <div class="choice" id="spock">
-         <img src="images/icon-spock.svg" alt="spock">
-      </div>
-   </div>
-   <p id="actionPrompt">Make your move</p>
-
-   <script src="js/app.js"></script> 
    
+      <div class="scoreBoard">
+         <div class="badge" id="userLabel">User</div>
+         <div class="badge" id="opponentLabel">Comp</div>
+         <span id="userScore">0</span> : <span id="opponentScore">0</span>
+      </div>
+
+   <div id="gameResults" class="hidden">
+      <div class="result">
+         <p>Results go here</p>
+      </div>
+      <div id="playAgain">
+      <button id="playAgainBtn">Go Again?</button>
+   </div>
+   </div>
+
+   <div id="gameBoard">
+      <div class="timeMessage">
+         <p>Rock, Paper, Scissors</p>
+      </div>
+      <div class="choices">
+         <div class="choice" id="rock">
+            <img src="images/icon-rock.svg" alt="rock">
+         </div>
+         <div class="choice" id="paper">
+            <img src="images/icon-paper.svg" alt="paper">
+         </div>
+         <div class="choice" id="scissors">
+            <img src="images/icon-scissors.svg" alt="scissors">
+         </div>
+         <div class="choice" id="lizard">
+            <img src="images/icon-lizard.svg" alt="lizard">
+         </div>
+         <div class="choice" id="spock">
+            <img src="images/icon-spock.svg" alt="spock">
+         </div>
+      </div>
+      <p id="actionPrompt">Make your move</p>
+   </div>
+
+   <script src="js/app.js"></script>
 </body>
+
 </html>

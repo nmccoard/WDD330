@@ -14,18 +14,32 @@
 
 let userScore = 0;
 let opponentScore = 0;
+let result = "";
+let resultMessage = "";
 
 const userScore_span = document.querySelector('#userScore');
 const opponentScore_span = document.querySelector('#opponentScore');
 const scoreBoard_div = document.querySelector('.scoreBoard');
 const result_p = document.querySelector('.result > p');
+const timeMessage_p = document.querySelector('.timeMessage > p');
+const gameBoard_div = document.querySelector('#gameBoard');
+const gameResult_div = document.querySelector('#gameResults');
 const rock_div = document.querySelector('#rock');
 const paper_div = document.querySelector('#paper');
 const scissors_div = document.querySelector('#scissors');
 const lizard_div = document.querySelector('#lizard');
 const spock_div = document.querySelector('#spock');
+const playBtn = document.querySelector('#playAgainBtn');
+
+playBtn.addEventListener('click', () => {
+   compGame();
+   gameTime();
+});
 
 function compGame() {
+   gameBoard_div.classList.remove("hidden");
+   gameResult_div.classList.add("hidden");
+
    rock_div.addEventListener('click', () => {
       //console.log("Hey did someone click Rock?");
       match("Rock", getComputerChoice());
@@ -58,65 +72,149 @@ function getComputerChoice() {
    return choices[randomNum];
 }
 
-function win(user, opponent) {
-   //console.log("User Wins!");
-   userScore ++;
-   userScore_span.innerHTML = userScore;
-   opponentScore_span.innerHTML = opponentScore;
-   result_p.innerHTML = `${user} beats ${opponent}. You WIN!`;
-}
-
-function lose(user, opponent) {
-   //console.log(`User Loses :( ${user.toLowerCase()}`);
-   opponentScore ++;
-   opponentScore_span.innerHTML = opponentScore;
-   userScore_span.innerHTML = userScore;
-   result_p.innerHTML = `${opponent} beats ${user}. You Lose :(`;
-}
-
-function draw(user, opponent) {
-   //console.log("Its a draw");
-   result_p.innerHTML = `${user} = ${opponent}. It's a draw`;
-}
-
 function match(userChoice, opponentChoice) {
    //const computerChoice = getComputerChoice();
    //console.log(`User picked ${userChoice}`);
    //console.log(`Comp picked ${computerChoice}`);
    switch (userChoice + ' ' + opponentChoice) {
       case 'Rock Scissors':
-      case 'Rock Lizard':
-      case 'Paper Rock':
-      case 'Paper Spock':
-      case 'Scissors Paper':
-      case 'Scissors Lizard':
-      case 'Lizard Spock':
-      case 'Lizard Paper':
-      case 'Spock Rock':
-      case 'Spock Scissors':
-         win(userChoice, opponentChoice);
+         console.log("User Wins!");
+         resultMessage = `You WIN!<br>${userChoice} crushes ${opponentChoice}.`;
+         result = "win";
          break;
+      case 'Rock Lizard':
+         console.log("User Wins!");
+         resultMessage = `You WIN!<br>${userChoice} crushes ${opponentChoice}.`;
+         result = "win";
+         break;
+      case 'Paper Rock':
+         console.log("User Wins!");
+         resultMessage = `You WIN!<br>${userChoice} covers ${opponentChoice}.`;
+         result = "win";
+         break;
+      case 'Paper Spock':
+         console.log("User Wins!");
+         resultMessage = `You WIN!<br>${userChoice} disproves ${opponentChoice}.`;
+         result = "win";
+         break;
+      case 'Scissors Paper':
+         console.log("User Wins!");
+         resultMessage = `You WIN!<br>${userChoice} cuts ${opponentChoice}.`;
+         result = "win";
+         break;
+      case 'Scissors Lizard':
+         console.log("User Wins!");
+         resultMessage = `You WIN!<br>${userChoice} decapitates ${opponentChoice}.`;
+         result = "win";
+         break;
+      case 'Lizard Spock':
+         console.log("User Wins!");
+         resultMessage = `You WIN!<br>${userChoice} poisons ${opponentChoice}.`;
+         result = "win";
+         break;
+      case 'Lizard Paper':
+         console.log("User Wins!");
+         resultMessage = `You WIN!<br>${userChoice} eats ${opponentChoice}.`;
+         result = "win";
+         break;
+      case 'Spock Rock':
+         console.log("User Wins!");
+         resultMessage = `You WIN!<br>${userChoice} vaporizes ${opponentChoice}.`;
+         result = "win";
+         break;
+      case 'Spock Scissors':
+         console.log("User Wins!");
+         resultMessage = `You WIN!<br>${userChoice} breaks ${opponentChoice}.`;
+         result = "win";
+         break;
+
       case 'Scissors Rock':
+         console.log(`User Loses :(`);
+         resultMessage = `You Lose :(<br>${opponentChoice} smashes your ${userChoice}.`;
+         result = "lose";
+         break;
       case 'Lizard Rock':
+         console.log(`User Loses :(`);
+         resultMessage = `You Lose :(<br>${opponentChoice} crushes your ${userChoice}.`;
+         result = "lose";
+         break;
       case 'Rock Paper':
+         console.log(`User Loses :(`);
+         resultMessage = `You Lose :(<br>${opponentChoice} covers your ${userChoice}.`;
+         result = "lose";
+         break;
       case 'Spock Paper':
+         console.log(`User Loses :(`);
+         resultMessage = `You Lose :(<br>${opponentChoice} disproves ${userChoice}.`;
+         result = "lose";
+         break;
       case 'Paper Scissors':
+         console.log(`User Loses :(`);
+         resultMessage = `You Lose :(<br>${opponentChoice} shreds your ${userChoice}.`;
+         result = "lose";
+         break;
       case 'Lizard Scissors':
+         console.log(`User Loses :(`);
+         resultMessage = `You Lose :(<br>${opponentChoice} decapitates your ${userChoice}.`;
+         result = "lose";
+         break;
       case 'Spock Lizard':
+         console.log(`User Loses :(`);
+         resultMessage = `You Lose :(<br>${opponentChoice} poisons ${userChoice}.`;
+         result = "lose";
+         break;
       case 'Paper Lizard':
+         console.log(`User Loses :(`);
+         resultMessage = `You Lose :(<br>The ${opponentChoice} eats your ${userChoice}.`;
+         result = "lose";
+         break;
       case 'Rock Spock':
+         console.log(`User Loses :(`);
+         resultMessage = `You Lose :(<br>${opponentChoice} vaporizes your ${userChoice}.`;
+         result = "lose";
+         break;
       case 'Scissors Spock':
-         lose(userChoice, opponentChoice);
+         console.log(`User Loses :(`);
+         resultMessage = `You Lose :(<br>${opponentChoice} breaks your ${userChoice}.`;
+         result = "lose";
          break;
       case 'Rock Rock':
       case 'Paper Paper':
       case 'Scissors Scissors':
       case 'Lizard Lizard':
       case 'Spock Spock':
-         draw(userChoice, opponentChoice);
+         console.log("Its a draw");
+         resultMessage = `It's a draw<br>${userChoice} = ${opponentChoice}.`;
+         result = "draw";
          break;
    }
 }
 
+function gameTime() {
+   timeMessage_p.innerHTML = "Rock"
+   setTimeout( () => {
+      timeMessage_p.innerHTML = "Paper";
+   }, 800);
+   setTimeout( () => {
+      timeMessage_p.innerHTML = "Scissors";
+   }, 1600);
+   setTimeout( () => {
+      timeMessage_p.innerHTML = "Shoot!";
+   }, 2400)
+   setTimeout( () => {
+      gameBoard_div.classList.add("hidden");
+      result_p.innerHTML = resultMessage;
+      if(result === "win"){
+         userScore ++;
+      } else if (result === "lose"){
+         opponentScore ++;
+      }
+      userScore_span.innerHTML = userScore;
+      opponentScore_span.innerHTML = opponentScore;
+      gameResult_div.classList.remove("hidden");
+   }, 3200)
+}
+
 compGame();
+gameTime();
 //console.log(getComputerChoice());

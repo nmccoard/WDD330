@@ -25,10 +25,10 @@ header > h1 {
    position: relative;
    margin: 30px auto;
    padding: 15px 20px;
-   border: 3px solid white;
+   border: 3px solid #EFEFEF;
    border-radius: 4px;
    width: 200px;
-   color: white;
+   color: #EFEFEF;
    font-size: 44px;
    text-align: center;
 }
@@ -54,10 +54,35 @@ header > h1 {
 
 .result {
    font-size: 40px;
-   color: white;
+   color: #EFEFEF;
 }
 
 .result > p {
+   font-weight: bold;
+   text-align: center;
+}
+
+#playAgain {
+   display: flex;
+   justify-content: center;
+   margin-top: 25px;
+}
+
+#playAgainBtn {
+   padding: 10px 20px;
+   font-size: 24px;
+   font-weight: 600;
+   color: #24272E;
+   border-radius: 5px;
+   border: none;
+}
+
+.timeMessage {
+   font-size: 48px;
+   color: #EFEFEF;
+}
+
+.timeMessage > p {
    font-weight: bold;
    text-align: center;
 }
@@ -69,7 +94,7 @@ header > h1 {
 
 .choice {
    display: inline-block;
-   border: 4px solid white;
+   border: 4px solid #EFEFEF;
    border-radius: 50%;
    margin: 0 20px;
    padding: 15px;
@@ -83,9 +108,13 @@ header > h1 {
 
 #actionPrompt {
    text-align: center;
-   color: white;
+   color: #EFEFEF;
    font-weight: bold;
    font-size: 25px;
    margin-top: 25px;
+}
+
+.hidden{
+   display: none;
 }
 
