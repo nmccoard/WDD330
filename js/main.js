@@ -44,6 +44,10 @@ function createList(){
       {
          label: "Week 10 Notes", 
          url: "week10/"
+      },
+      {
+         label: "Week 11 Notes", 
+         url: "week11/"
       }
    ]
 
