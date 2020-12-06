@@ -16,7 +16,9 @@ let userScore = 0;
 let opponentScore = 0;
 let result = "";
 let resultMessage = "";
+let compChoices = 5;
 
+const startBtn = document.querySelector('#startGameBtn');
 const userScore_span = document.querySelector('#userScore');
 const opponentScore_span = document.querySelector('#opponentScore');
 const scoreBoard_div = document.querySelector('.scoreBoard');
@@ -30,6 +32,15 @@ const scissors_div = document.querySelector('#scissors');
 const lizard_div = document.querySelector('#lizard');
 const spock_div = document.querySelector('#spock');
 const playBtn = document.querySelector('#playAgainBtn');
+const switch_input = document.querySelector('.switch > input');
+
+startBtn.addEventListener('click', () => {
+   scoreBoard_div.classList.remove('hidden');
+   document.getElementById('actionPrompt').classList.remove('hidden');
+   document.querySelectorAll('.startScreen')[0].classList.add('hidden');
+   compGame();
+   gameTime();
+});
 
 playBtn.addEventListener('click', () => {
    compGame();
@@ -40,6 +51,11 @@ function compGame() {
    gameBoard_div.classList.remove("hidden");
    gameResult_div.classList.add("hidden");
 
+   // reset the game board
+   result = "";
+   resultMessage = "";
+
+   // Add all the selection event listeners
    rock_div.addEventListener('click', () => {
       //console.log("Hey did someone click Rock?");
       match("Rock", getComputerChoice());
@@ -68,7 +84,7 @@ function compGame() {
 
 function getComputerChoice() {
    const choices = ['Rock', 'Paper', 'Scissors', 'Lizard', 'Spock'];
-   const randomNum = Math.floor(Math.random() * 5);
+   const randomNum = Math.floor(Math.random() * compChoices);
    return choices[randomNum];
 }
 
@@ -150,7 +166,7 @@ function match(userChoice, opponentChoice) {
          break;
       case 'Paper Scissors':
          console.log(`User Loses :(`);
-         resultMessage = `You Lose :(<br>${opponentChoice} shreds your ${userChoice}.`;
+         resultMessage = `You Lose :(<br>${opponentChoice} shreds ${userChoice}.`;
          result = "lose";
          break;
       case 'Lizard Scissors':
@@ -178,6 +194,7 @@ function match(userChoice, opponentChoice) {
          resultMessage = `You Lose :(<br>${opponentChoice} breaks your ${userChoice}.`;
          result = "lose";
          break;
+
       case 'Rock Rock':
       case 'Paper Paper':
       case 'Scissors Scissors':
@@ -212,9 +229,29 @@ function gameTime() {
       userScore_span.innerHTML = userScore;
       opponentScore_span.innerHTML = opponentScore;
       gameResult_div.classList.remove("hidden");
-   }, 3200)
+   }, 3100);
 }
 
-compGame();
-gameTime();
+switch_input.addEventListener('change', classicMode);
+
+function classicMode() {
+   if (switch_input.checked){
+      document.querySelector('#classicTag').style.color = "#EFEFEF";
+      document.querySelector('#epicTag').style.color = "#efefef2a";
+      document.querySelector('#notClassic').classList.add("hidden");
+      lizard_div.classList.add("hidden");
+      spock_div.classList.add("hidden");
+      compChoices = 3;
+   } else {
+      document.querySelector('#classicTag').style.color = "#efefef2a";
+      document.querySelector('#epicTag').style.color = "#EFEFEF";
+      document.querySelector('#notClassic').classList.remove("hidden");
+      lizard_div.classList.remove("hidden");
+      spock_div.classList.remove("hidden");
+      compChoices = 5;
+   }
+}
+
+//compGame();
+//gameTime();
 //console.log(getComputerChoice());
