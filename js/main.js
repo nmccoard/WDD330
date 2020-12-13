@@ -26,7 +26,7 @@ function createList(){
          url: "week5/"
       },
       {
-         label: "Week 6 Challenge: Todo App", 
+         label: "Week 6 - Challenge", 
          url: "toDos/"
       },
       {
@@ -48,6 +48,10 @@ function createList(){
       {
          label: "Week 11 Notes", 
          url: "week11/"
+      },
+      {
+         label: "Weeks 12 & 13",
+         url: "https://rock-paper-scissor5.herokuapp.com/"
       }
    ]
 

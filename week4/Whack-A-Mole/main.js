@@ -1,10 +1,11 @@
 const holes = document.querySelectorAll('.hole');
 const scoreBoard = document.querySelector('.score');
+const highSB = document.querySelector('.highS');
 const moles = document.querySelectorAll('.mole');
 let lastHole;
 let timeUp = false;
 let score = 0;
-let highScore = 
+let highScore = loadHighScore();
 
 function randomTime(min, max) {
    return Math.round(Math.random() * (max - min) + min);
@@ -52,10 +53,25 @@ function hit(e) {
    score++;
    this.classList.remove('up');
    scoreBoard.textContent = score;
+   if(score > highScore){
+      highScore = score;
+      highSB.textContent = highScore;
+   }
 }
 
 function gameOver() {
    console.log("Game is over")
+   localStorage.setItem("whackAmole", highScore);
+}
+
+function loadHighScore() {
+   let savedScore = localStorage.getItem("whackAmole");
+   if (savedScore != null) {
+      highSB.textContent = savedScore;
+      return savedScore;
+   } else {
+      return 0;
+   }
 }
 
 moles.forEach(mole => mole.addEventListener('click', hit));
