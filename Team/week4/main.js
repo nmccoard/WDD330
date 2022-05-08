@@ -44,7 +44,7 @@ game.selectedSquare.forEach(square => {
          game.totalTurns++;
       }
 
-      if (game.totalTurns > 9) {
+      else (game.totalTurns >= 9) {
          isTie();
       }
    });
