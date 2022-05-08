@@ -44,8 +44,12 @@ game.selectedSquare.forEach(square => {
          game.totalTurns++;
       }
 
-      else (game.totalTurns >= 9) {
-         isTie();
+      if (game.totalTurns >= 9) {
+         if (checkWin(game.playerOne)) {
+            console.log("Player 1 won")
+            winner("First");
+         }
+         else {isTie();}
       }
    });
 });
